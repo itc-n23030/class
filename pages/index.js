@@ -1,5 +1,10 @@
 const Home = () => {
-  return <h1>CUBE</h1>
+  return (
+    <div>
+      <h1>CUBE</h1>
+      <p>アウトプットしていくサイト</p>
+    </div>
+  )
 }
 
 export default Home
