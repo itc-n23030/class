@@ -1,4 +1,5 @@
 import Layout from 'components/layout'
+import 'styles/globals.css'
 const App = ({ Component, pageProps }) => {
   return (
     <Layout>
