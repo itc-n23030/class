@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-@media (min-width 768px) {
+@media (min-width: 768px) {
   .sideBySide {
     flex-direction: row;
     justify-content: space-between;
@@ -22,8 +22,8 @@
   text-align: center;
 }
 
-@media (min-width 768px) {
-  .sideByCenter {
+@media (min-width: 768px) {
+  .sideBySideCenter {
     text-align: left;
   }
 }

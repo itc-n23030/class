@@ -12,3 +12,7 @@
 .subtitle {
   font-size: var(--small-heading2);
 }
+
+.flexContainer {
+  composes: sideBySideCenter from 'styles/utils.module.css'
+}
