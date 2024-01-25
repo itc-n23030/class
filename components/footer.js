@@ -4,14 +4,14 @@ import Container from 'components/container'
 
 const Footer = () => {
   return (
-    <Container>
-      <footer className={styles.wrapper}>
+    <footer className={styles.wrapper}>
+      <Container>
         <div className={styles.flexContainer}>
           <Logo />
           [social]
         </div>
-      </footer>
-    </Container>
+      </Container>
+    </footer>
   )
 }
 
