@@ -2,7 +2,7 @@ import Hero from 'components/hero'
 import Container from 'components/container'
 import PostBody from 'components/post-body'
 import Contact from 'components/contact'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import eyecatch from 'images/about.jpg'
 import {
   TwoColumn,
