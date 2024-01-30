@@ -16,3 +16,11 @@
 .flexContainer {
   composes: sideBySideCenter from 'styles/utils.module.css'
 }
+
+.image {
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  width: 50%;
+}
