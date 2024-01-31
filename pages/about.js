@@ -4,7 +4,7 @@ import PostBody from 'components/post-body'
 import Contact from 'components/contact'
 import Image from 'next/legacy/image'
 import eyecatch from 'images/about.jpg'
-import Head from 'components/header'
+import Meta from 'compoments/meta'
 import {
   TwoColumn,
   TwoColumnMain,
@@ -15,9 +15,7 @@ const About = () => {
   const props = { title: 'About', subtitle: 'About development activities' }
   return (
     <Container>
-      <Head>
-        <title>アバウト</title>
-      </Head>
+      <Meta pagetitle='アバウト' />
       <Hero {...props} />
       <figure>
         <Image
