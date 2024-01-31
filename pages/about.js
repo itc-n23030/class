@@ -15,7 +15,13 @@ const About = () => {
   const props = { title: 'About', subtitle: 'About development activities' }
   return (
     <Container>
-      <Meta pagetitle='アバウト' />
+      <Meta
+        pageTitle='アバウト'
+        pageDesc='About development activities'
+        pageImg={eyecatch.src}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
       <Hero {...props} />
       <figure>
         <Image
