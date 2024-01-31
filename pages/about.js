@@ -4,7 +4,7 @@ import PostBody from 'components/post-body'
 import Contact from 'components/contact'
 import Image from 'next/legacy/image'
 import eyecatch from 'images/about.jpg'
-import Meta from 'compoments/meta'
+import Meta from 'components/meta'
 import {
   TwoColumn,
   TwoColumnMain,

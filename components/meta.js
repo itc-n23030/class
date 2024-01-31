@@ -1,4 +1,4 @@
-import Head from 'components/header'
+import Head from 'next/head'
 import { siteMeta } from 'lib/constants'
 const {
   siteTitle,
