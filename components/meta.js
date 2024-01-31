@@ -1,10 +1,19 @@
 import Head from 'components/header'
-
-const Meta = ({ pagetitle }) => {
+import { siteMeta } from 'lib/constants'
+const {
+  siteTitle,
+  siteDesc,
+  siteUrl,
+  siteLocale,
+  siteType,
+  siteIcon
+} = siteMeta
+const Meta = ({ pageTitle }) => {
+  const title = pageTitle ? `${pageTitle}|${siteTitle}` : siteTitle
   return (
     <Head>
-      <title>{pagetitle}</title>
-      <meta property='og:title' content={pagetitle} />
+      <title>{title}</title>
+      <meta property='og:title' content={title} />
     </Head>
   )
 }
