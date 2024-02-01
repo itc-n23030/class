@@ -2,6 +2,13 @@ import { getPostBySlug } from 'lib/api'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
 import Image from 'next/legacy/image'
+import PostBody from 'components/post-body'
+import ConvertBody from 'components/convert-body'
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar
+} from 'components/two-column'
 
 const Schedule = ({ title, publish, content, eyecatch, categories }) => {
   return (
@@ -19,6 +26,14 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => {
             priority
           />
         </figure>
+        <TwoColumn>
+          <TwoColumnMain>
+            <PostBody>
+              <ConvertBody contentHTML={content} />
+            </PostBody>
+          </TwoColumnMain>
+          <TwoColumnSidebar></TwoColumnSidebar>
+        </TwoColumn>
       </article>
     </Container>
   )
