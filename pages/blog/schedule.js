@@ -5,15 +5,31 @@ import Image from 'next/legacy/image'
 import PostBody from 'components/post-body'
 import ConvertBody from 'components/convert-body'
 import PostCategories from 'components/post-categories'
+import { extractText } from 'lib/extract-text'
+import Meta from 'components/meta'
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar
 } from 'components/two-column'
 
-const Schedule = ({ title, publish, content, eyecatch, categories }) => {
+const Schedule = ({
+  title,
+  publish,
+  content,
+  eyecatch,
+  categories,
+  description
+}) => {
   return (
     <Container>
+      <Meta
+        pageTitle={title}
+        pageDesc={description}
+        pageImg={eyecatch.url}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
       <article>
         <PostHeader title={title} subtitle='Blog Article' publish={publish} />
         <figure>
@@ -45,6 +61,7 @@ const Schedule = ({ title, publish, content, eyecatch, categories }) => {
 const getStaticProps = async () => {
   const slug = 'schedule'
   const post = await getPostBySlug(slug)
+  const description = extractText(post.content)
 
   return {
     props: {
@@ -52,7 +69,8 @@ const getStaticProps = async () => {
       publish: post.publishDate,
       content: post.content,
       eyecatch: post.eyecatch,
-      categories: post.categories
+      categories: post.categories,
+      description
     }
   }
 }
