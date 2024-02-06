@@ -1,4 +1,4 @@
-.gredContainer {
+.gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-jump);
@@ -14,5 +14,5 @@
 
 .post figure {
   position: relative;
-  aspect-ratio: 16/9
+  aspect-ratio: 16/9;
 }

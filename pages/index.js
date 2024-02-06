@@ -11,14 +11,12 @@ import { getPlaiceholder } from 'plaiceholder'
 const Home = ({ posts }) => {
   const props = { title: 'CUBE', subtitle: 'アウトプットしていくサイト' }
   return (
-    <>
-      <Container>
-        <Meta />
-        <Hero {...props} imageOn />
-        <Posts posts={posts} />
-        <Pagination nextUrl='/blog' nextText='More Posts' />
-      </Container>
-    </>
+    <Container>
+      <Meta />
+      <Hero {...props} imageOn />
+      <Posts posts={posts} />
+      <Pagination nextUrl='/blog' nextText='More Posts' />
+    </Container>
   )
 }
 
@@ -28,13 +26,14 @@ const getStaticProps = async () => {
     if (!Object.prototype.hasOwnProperty.call(post, 'eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
-    const imageBuffer = getImageBuffer(post.eyecatch.url)
-    const { base64 } = getPlaiceholder(imageBuffer)
+    const ImageBuffer = await getImageBuffer(post.eyecatch.url)
+    const { base64 } = await getPlaiceholder(ImageBuffer)
     post.eyecatch.blurDataURL = base64
   }
-
   return {
-    props: posts
+    props: {
+      posts
+    }
   }
 }
 
