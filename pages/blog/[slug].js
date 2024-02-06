@@ -1,20 +1,22 @@
 import { getPostBySlug, getAllSlugs } from 'lib/api'
+import { extractText } from 'lib/extract-text'
+import { eyecatchLocal } from 'lib/constants'
+import { getImageBuffer } from 'lib/getImageBuffer'
+import { prevNextPost } from 'lib/prev-next-post'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
-import Image from 'next/legacy/image'
 import PostBody from 'components/post-body'
 import ConvertBody from 'components/convert-body'
 import PostCategories from 'components/post-categories'
-import { extractText } from 'lib/extract-text'
+import Pagination from 'components/pagination'
 import Meta from 'components/meta'
-import { eyecatchLocal } from 'lib/constants'
-import { getImageBuffer } from 'lib/getImageBuffer'
-import { getPlaiceholder } from 'plaiceholder'
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar
 } from 'components/two-column'
+import Image from 'next/legacy/image'
+import { getPlaiceholder } from 'plaiceholder'
 
 const Post = ({
   title,
@@ -22,7 +24,9 @@ const Post = ({
   content,
   eyecatch,
   categories,
-  description
+  description,
+  prevPost,
+  nextPost
 }) => {
   return (
     <Container>
@@ -58,6 +62,12 @@ const Post = ({
             <PostCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`}
+        />
       </article>
     </Container>
   )
@@ -79,6 +89,8 @@ const getStaticProps = async context => {
   const imageBuffer = await getImageBuffer(eyecatch.url)
   const { base64 } = await getPlaiceholder(imageBuffer)
   eyecatch.blurDataURL = base64
+  const allSlugs = await getAllSlugs()
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug)
 
   return {
     props: {
@@ -87,7 +99,9 @@ const getStaticProps = async context => {
       content: post.content,
       eyecatch,
       categories: post.categories,
-      description
+      description,
+      prevPost,
+      nextPost
     }
   }
 }
