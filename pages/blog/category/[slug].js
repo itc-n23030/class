@@ -2,6 +2,7 @@ import { getAllCategories, getAllPostsByCategory } from 'lib/api'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
 import Posts from 'components/posts'
+import Meta from 'components/meta'
 import { getPlaiceholder } from 'plaiceholder'
 import { getImageBuffer } from 'lib/getImageBuffer'
 import { eyecatchLocal } from 'lib/constants'
@@ -9,6 +10,7 @@ import { eyecatchLocal } from 'lib/constants'
 const Category = ({ name, posts }) => {
   return (
     <Container>
+      <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
       <PostHeader title={name} subtitle='Blog Category' />
       <Posts posts={posts} />
     </Container>
