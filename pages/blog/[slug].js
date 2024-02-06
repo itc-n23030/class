@@ -1,4 +1,4 @@
-import { getPostBySlug } from 'lib/api'
+import { getPostBySlug, getAllSlugs } from 'lib/api'
 import Container from 'components/container'
 import PostHeader from 'components/post-header'
 import Image from 'next/legacy/image'
@@ -63,9 +63,10 @@ const Post = ({
   )
 }
 
-const getStaticPaths = () => {
+const getStaticPaths = async () => {
+  const allSlugs = await getAllSlugs()
   return {
-    paths: ['/blog/schedule', '/blog/music', '/blog/micro'],
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false
   }
 }
