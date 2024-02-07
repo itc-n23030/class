@@ -15,7 +15,7 @@ import {
   TwoColumnMain,
   TwoColumnSidebar
 } from 'components/two-column'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 
 const Post = ({
@@ -44,10 +44,13 @@ const Post = ({
             key={eyecatch.url}
             src={eyecatch.url}
             alt=''
-            layout='responsive'
             width={eyecatch.width}
             height={eyecatch.height}
             sizes='(min-width: 1152px) 1152px 100vw'
+            style={{
+              width: '100%',
+              height: 'auto'
+            }}
             priority
             placeholder='blur'
             blurDataURL={eyecatch.blurDataURL}

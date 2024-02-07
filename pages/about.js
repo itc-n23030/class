@@ -2,7 +2,7 @@ import Hero from 'components/hero'
 import Container from 'components/container'
 import PostBody from 'components/post-body'
 import Contact from 'components/contact'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import eyecatch from 'images/about.jpg'
 import Meta from 'components/meta'
 import {
@@ -27,8 +27,11 @@ const About = () => {
         <Image
           src={eyecatch}
           alt=''
-          layout='responsive'
           sizes='(min-width: 1152px) 1152px, 100vw'
+          style={{
+            width: '100%',
+            height: 'auto'
+          }}
           priority
           placeholder='blur'
         />
